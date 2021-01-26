@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.zyplayer</groupId>
+	<artifactId>zyplayer-doc</artifactId>
+	<version>1.0.7</version>
+	<packaging>pom</packaging>
+
+	<name>zyplayer-doc</name>
+	<description>定位为所有文档的管理项目，swagger文档、数据库文档、、、、等</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<fastjson.version>1.2.53</fastjson.version>
+		<elasticsearch.version>7.2.0</elasticsearch.version>
+	</properties>
+
+	<modules>
+		<module>zyplayer-doc-db</module>
+		<module>zyplayer-doc-manage</module>
+		<module>zyplayer-doc-swagger</module>
+		<module>zyplayer-doc-core</module>
+		<module>zyplayer-doc-dubbo</module>
+		<module>zyplayer-doc-wiki</module>
+		<module>zyplayer-doc-data</module>
+		<module>zyplayer-doc-grpc</module>
+		<module>zyplayer-doc-other</module>
+		<module>zyplayer-doc-es</module>
+	</modules>
+</project>
