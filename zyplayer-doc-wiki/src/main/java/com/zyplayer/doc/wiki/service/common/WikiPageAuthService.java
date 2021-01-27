@@ -25,7 +25,7 @@ public class WikiPageAuthService {
 			return "当前页面不允许编辑！";
 		}
 		// 私人空间不允许调用接口获取文章
-		if (SpaceType.isOthersPrivate(wikiSpaceSel.getType(), currentUserId, wikiSpaceSel.getCreateUserId())) {
+		if (SpaceType.isOthersPrivate(wikiSpaceSel.getType(), currentUserId, wikiSpaceSel.getUserGroup())) {
 			return "您没有权限修改该空间的文章！";
 		}
 		// 空间不是自己的，也没有权限
@@ -66,7 +66,7 @@ public class WikiPageAuthService {
 	 */
 	public String canUploadFile(WikiSpace wikiSpaceSel, Long pageId, Long currentUserId) {
 		// 私人空间
-		if (SpaceType.isOthersPrivate(wikiSpaceSel.getType(), currentUserId, wikiSpaceSel.getCreateUserId())) {
+		if (SpaceType.isOthersPrivate(wikiSpaceSel.getType(), currentUserId, wikiSpaceSel.getUserGroup())) {
 			return "您没有该空间的文件上传权限！";
 		}
 		// 空间不是自己的，也没有权限
@@ -92,7 +92,7 @@ public class WikiPageAuthService {
 			return "当前页面不允许编辑！";
 		}
 		// 私人空间不允许调用接口获取文章
-		if (SpaceType.isOthersPrivate(wikiSpaceSel.getType(), currentUserId, wikiSpaceSel.getCreateUserId())) {
+		if (SpaceType.isOthersPrivate(wikiSpaceSel.getType(), currentUserId, wikiSpaceSel.getUserGroup())) {
 			return "您没有权限修改该空间的文章！";
 		}
 		// 空间不是自己的，也没有权限

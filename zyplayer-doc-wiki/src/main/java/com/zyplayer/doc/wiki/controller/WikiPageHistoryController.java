@@ -50,7 +50,7 @@ public class WikiPageHistoryController {
 		WikiPage wikiPageSel = wikiPageService.getById(pageId);
 		WikiSpace wikiSpaceSel = wikiSpaceService.getById(wikiPageSel.getSpaceId());
 		// 私人空间
-		if (SpaceType.isOthersPrivate(wikiSpaceSel.getType(), currentUser.getUserId(), wikiSpaceSel.getCreateUserId())) {
+		if (SpaceType.isOthersPrivate(wikiSpaceSel.getType(), currentUser.getUserId(), wikiSpaceSel.getUserGroup())) {
 			return DocResponseJson.warn("您没有权限查看该空间的文章详情！");
 		}
 		UpdateWrapper<WikiPageHistory> wrapper = new UpdateWrapper<>();
@@ -72,7 +72,7 @@ public class WikiPageHistoryController {
 		WikiPage wikiPageSel = wikiPageService.getById(wikiPageHistory.getPageId());
 		WikiSpace wikiSpaceSel = wikiSpaceService.getById(wikiPageSel.getSpaceId());
 		// 私人空间
-		if (SpaceType.isOthersPrivate(wikiSpaceSel.getType(), currentUser.getUserId(), wikiSpaceSel.getCreateUserId())) {
+		if (SpaceType.isOthersPrivate(wikiSpaceSel.getType(), currentUser.getUserId(), wikiSpaceSel.getUserGroup())) {
 			return DocResponseJson.warn("您没有权限查看该空间的文章详情！");
 		}
 		String pageHistory = gitService.getPageHistory(wikiPageHistory.getGitCommitId(), wikiPageHistory.getPageId());

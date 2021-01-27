@@ -54,7 +54,7 @@ public class WikiPageZanController {
 		WikiPage wikiPageSel = wikiPageService.getById(wikiPageZan.getPageId());
 		WikiSpace wikiSpaceSel = wikiSpaceService.getById(wikiPageSel.getSpaceId());
 		// 私人空间
-		if (SpaceType.isOthersPrivate(wikiSpaceSel.getType(), currentUser.getUserId(), wikiSpaceSel.getCreateUserId())) {
+		if (SpaceType.isOthersPrivate(wikiSpaceSel.getType(), currentUser.getUserId(), wikiSpaceSel.getUserGroup())) {
 			return DocResponseJson.warn("您没有获取该空间的点赞列表权限！");
 		}
 		UpdateWrapper<WikiPageZan> wrapper = new UpdateWrapper<>();
@@ -81,7 +81,7 @@ public class WikiPageZanController {
 		WikiPage wikiPageSel = wikiPageService.getById(pageId);
 		WikiSpace wikiSpaceSel = wikiSpaceService.getById(wikiPageSel.getSpaceId());
 		// 私人空间
-		if (SpaceType.isOthersPrivate(wikiSpaceSel.getType(), currentUser.getUserId(), wikiSpaceSel.getCreateUserId())) {
+		if (SpaceType.isOthersPrivate(wikiSpaceSel.getType(), currentUser.getUserId(), wikiSpaceSel.getUserGroup())) {
 			return DocResponseJson.warn("您没有该空间的点赞权限！");
 		}
 		wikiPageZanService.zanPage(wikiPageZan);

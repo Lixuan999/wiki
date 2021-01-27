@@ -173,6 +173,9 @@
 			<el-form-item label="空间描述：" prop="spaceExplain">
 				<el-input v-model="newSpaceForm.spaceExplain"></el-input>
 			</el-form-item>
+			<el-form-item label="用户组：" prop="userGroup">
+				<el-input v-model="newSpaceForm.userGroup"></el-input>
+			</el-form-item>
 			<el-form-item label="空间开放：">
 				<el-switch v-model="newSpaceForm.openDoc" inactive-text="需要登录" :inactive-value="0" active-text="开放访问" :active-value="1"></el-switch>
 			</el-form-item>
@@ -194,9 +197,6 @@
 						<span style="float: right; color: #8492a6; font-size: 13px;">属于个人，仅创建者和组内成员可访问</span>
 					</el-option>
 				</el-select>
-			</el-form-item>
-			<el-form-item label="用户组：" prop="userGroup">
-				<el-input v-model="newSpaceForm.userGroup"></el-input>
 			</el-form-item>
 			<el-form-item>
 				<el-button type="primary" v-if="newSpaceForm.id > 0" @click="onNewSpaceSubmit('newSpaceForm')">保存修改</el-button>
@@ -275,7 +275,7 @@
 				nowSpaceShow: {},
 				newSpaceDialogVisible: false,
 				manageSpaceDialogVisible: false,
-				newSpaceForm: {id: '', name: '', spaceExplain: '', treeLazyLoad: 0, openDoc: 0, uuid: '', type: 1},
+				newSpaceForm: {id: '', name: '', spaceExplain: '',userGroup: '', treeLazyLoad: 0, openDoc: 0, uuid: '', type: 1},
 				newSpaceFormRules: {
 					name: [
 						{required: true, message: '请输入空间名', trigger: 'blur'},
@@ -345,8 +345,8 @@
 			},
 			editSpaceInfo(row) {
 				app.newSpaceForm = {
-					id: row.id, name: row.name, spaceExplain: row.spaceExplain,
-					treeLazyLoad: row.treeLazyLoad, openDoc: row.openDoc, type: row.type, userGroup: row.userGroup,
+					id: row.id, name: row.name, spaceExplain: row.spaceExplain,userGroup: row.userGroup,
+					treeLazyLoad: row.treeLazyLoad, openDoc: row.openDoc, type: row.type,
 				};
 				app.newSpaceDialogVisible = true;
 			},

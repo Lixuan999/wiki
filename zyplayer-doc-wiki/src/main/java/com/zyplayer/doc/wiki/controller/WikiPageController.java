@@ -86,7 +86,7 @@ public class WikiPageController {
 		DocUserDetails currentUser = DocUserUtil.getCurrentUser();
 		WikiSpace wikiSpaceSel = wikiSpaceService.getById(wikiPage.getSpaceId());
 		// 私人空间
-		if (SpaceType.isOthersPrivate(wikiSpaceSel.getType(), currentUser.getUserId(), wikiSpaceSel.getCreateUserId())) {
+		if (SpaceType.isOthersPrivate(wikiSpaceSel.getType(), currentUser.getUserId(), wikiSpaceSel.getUserGroup())) {
 			return DocResponseJson.warn("您没有权限查看该空间的文章列表！");
 		}
 		UpdateWrapper<WikiPage> wrapper = new UpdateWrapper<>();
@@ -117,7 +117,7 @@ public class WikiPageController {
 		WikiPage wikiPageSel = wikiPageService.getById(wikiPage.getId());
 		WikiSpace wikiSpaceSel = wikiSpaceService.getById(wikiPageSel.getSpaceId());
 		// 私人空间
-		if (SpaceType.isOthersPrivate(wikiSpaceSel.getType(), currentUser.getUserId(), wikiSpaceSel.getCreateUserId())) {
+		if (SpaceType.isOthersPrivate(wikiSpaceSel.getType(), currentUser.getUserId(), wikiSpaceSel.getUserGroup())) {
 			return DocResponseJson.warn("您没有权限查看该空间的文章详情！");
 		}
 		UpdateWrapper<WikiPageContent> wrapper = new UpdateWrapper<>();
@@ -248,7 +248,7 @@ public class WikiPageController {
 				return DocResponseJson.warn("未找到指定的空间！");
 			}
 			// 空间不是自己的
-			if (SpaceType.isOthersPrivate(wikiSpaceSel.getType(), currentUser.getUserId(), wikiSpaceSel.getCreateUserId())) {
+			if (SpaceType.isOthersPrivate(wikiSpaceSel.getType(), currentUser.getUserId(), wikiSpaceSel.getUserGroup())) {
 				return DocResponseJson.warn("您没有权限新增该空间的文章！");
 			}
 			// 空间不是自己的
@@ -424,7 +424,7 @@ public class WikiPageController {
 			spaceList = wikiSpaceService.list(queryWrapper);
 		} else {
 			WikiSpace wikiSpaceSel = wikiSpaceService.getById(spaceId);
-			if (SpaceType.isOthersPrivate(wikiSpaceSel.getType(), currentUser.getUserId(), wikiSpaceSel.getCreateUserId())) {
+			if (SpaceType.isOthersPrivate(wikiSpaceSel.getType(), currentUser.getUserId(), wikiSpaceSel.getUserGroup())) {
 				return Collections.emptyMap();
 			}
 			spaceList = Collections.singletonList(wikiSpaceSel);

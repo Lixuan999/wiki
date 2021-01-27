@@ -61,7 +61,7 @@ public class WikiPageCommentController {
 		WikiPage wikiPageSel = wikiPageService.getById(pageComment.getPageId());
 		WikiSpace wikiSpaceSel = wikiSpaceService.getById(wikiPageSel.getSpaceId());
 		// 私人空间
-		if (SpaceType.isOthersPrivate(wikiSpaceSel.getType(), currentUser.getUserId(), wikiSpaceSel.getCreateUserId())) {
+		if (SpaceType.isOthersPrivate(wikiSpaceSel.getType(), currentUser.getUserId(), wikiSpaceSel.getUserGroup())) {
 			return DocResponseJson.warn("您没有查看该空间的评论权！");
 		}
 		UpdateWrapper<WikiPageComment> wrapper = new UpdateWrapper<>();
@@ -121,7 +121,7 @@ public class WikiPageCommentController {
 		WikiPage wikiPageSel = wikiPageService.getById(pageId);
 		WikiSpace wikiSpaceSel = wikiSpaceService.getById(wikiPageSel.getSpaceId());
 		// 私人空间
-		if (SpaceType.isOthersPrivate(wikiSpaceSel.getType(), currentUser.getUserId(), wikiSpaceSel.getCreateUserId())) {
+		if (SpaceType.isOthersPrivate(wikiSpaceSel.getType(), currentUser.getUserId(), wikiSpaceSel.getUserGroup())) {
 			return DocResponseJson.warn("您没有该空间的评论权！");
 		}
 		// 空间不是自己的，也没有权限，感觉评论没必要加权限，先去掉

@@ -607,6 +607,11 @@
                         label: "说明"
                     }
                 }), a("el-table-column", {
+                    attrs: {
+                        prop: "userGroup",
+                        label: "内部成员"
+                    }
+                }), a("el-table-column", {
                     attrs: {label: "开放地址"}, scopedSlots: e._u([{
                         key: "default", fn: function (t) {
                             return [1 == t.row.openDoc ? a("el-button", {
@@ -689,7 +694,16 @@
                         nowSpaceShow: {},
                         newSpaceDialogVisible: !1,
                         manageSpaceDialogVisible: !1,
-                        newSpaceForm: {id: "", name: "", spaceExplain: "", treeLazyLoad: 0, openDoc: 0, uuid: "", type: 1},
+                        newSpaceForm: {
+                            id: "",
+                            name: "",
+                            spaceExplain: "",
+                            userGroup: "",
+                            treeLazyLoad: 0,
+                            openDoc: 0,
+                            uuid: "",
+                            type: 1
+                        },
                         newSpaceFormRules: {
                             name: [{required: !0, message: "请输入空间名", trigger: "blur"}, {
                                 min: 2,
@@ -783,6 +797,7 @@
                             id: e.id,
                             name: e.name,
                             spaceExplain: e.spaceExplain,
+                            userGroup: e.userGroup,
                             treeLazyLoad: e.treeLazyLoad,
                             openDoc: e.openDoc,
                             type: e.type
@@ -804,6 +819,7 @@
                             id: "",
                             name: "",
                             spaceExplain: "",
+                            userGroup: "",
                             treeLazyLoad: 0,
                             openDoc: 0,
                             uuid: "",
@@ -874,6 +890,7 @@
                                     type: t.newSpaceForm.type,
                                     openDoc: t.newSpaceForm.openDoc,
                                     spaceExplain: t.newSpaceForm.spaceExplain,
+                                    userGroup: t.newSpaceForm.userGroup,
                                     treeLazyLoad: t.newSpaceForm.treeLazyLoad
                                 };
                                 y["a"].updateSpace(a).then((function (e) {
@@ -884,6 +901,7 @@
                                         id: "",
                                         name: "",
                                         spaceExplain: "",
+                                        userGroup: "",
                                         treeLazyLoad: 0,
                                         openDoc: 0,
                                         uuid: "",
