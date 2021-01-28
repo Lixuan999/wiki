@@ -495,7 +495,7 @@
                             e.$set(e.newSpaceForm, "spaceExplain", t)
                         }, expression: "newSpaceForm.spaceExplain"
                     }
-                })], 1), a("el-form-item", {
+                })], 1),/* a("el-form-item", {
                     attrs: {
                         label: "成员组：",
                         prop: "userGroup"
@@ -506,7 +506,7 @@
                             e.$set(e.newSpaceForm, "userGroup", t)
                         }, expression: "newSpaceForm.userGroup"
                     }
-                })], 1), a("el-form-item", {attrs: {label: "空间开放："}}, [a("el-switch", {
+                })], 1),*/ a("el-form-item", {attrs: {label: "空间开放："}}, [a("el-switch", {
                     attrs: {
                         "inactive-text": "需要登录",
                         "inactive-value": 0,
@@ -649,7 +649,7 @@
                     }])
                 })], 1)], 1), a("el-dialog", {
                     attrs: {
-                        title: "关于zyplayer-doc-wiki",
+                        title: "关于zyyx-wiki-online",
                         visible: e.aboutDialogVisible,
                         width: "600px"
                     }, on: {
@@ -662,17 +662,16 @@
                         target: "_blank",
                         href: "https://gitee.com/zyplayer/zyplayer-doc"
                     }
-                }, [e._v("zyplayer-doc")])]), a("el-form-item", {attrs: {label: "开发人员："}}, [a("a", {
+                }, [e._v("zyplayer-doc")])]), a("el-form-item", {attrs: {label: "二次开发："}}, [a("a", {
                     attrs: {
-                        target: "_blank",
-                        href: "http://zyplayer.com"
+                        target: "_blank"
                     }
-                }, [e._v("暮光：城中城")])]), e.upgradeInfo.lastVersion ? [a("el-form-item", {attrs: {label: "当前版本："}}, [e._v(e._s(e.upgradeInfo.nowVersion) + "、最新版本：" + e._s(e.upgradeInfo.lastVersion) + "，"), a("a", {
+                }, [e._v("xuan")])]), e.upgradeInfo.lastVersion ? [a("el-form-item", {attrs: {label: "当前版本："}}, [e._v(e._s(e.upgradeInfo.nowVersion) + "、最新版本：" + e._s(e.upgradeInfo.lastVersion) + "，"), a("a", {
                     attrs: {
                         target: "_blank",
                         href: e.upgradeInfo.upgradeUrl
                     }
-                }, [e._v("去升级")])]), a("el-form-item", {attrs: {label: "升级内容："}}, [e._v(e._s(e.upgradeInfo.upgradeContent))])] : e._e(), a("el-form-item", {attrs: {label: ""}}, [e._v(" zyplayer-doc是一款开源的在线文档工具，现有WIKI文档、数据库文档、swagger文档、dubbo文档、ElasticSearch文档等，不止文档。期待与你一起来迭代完善，欢迎加群讨论，QQ群号：466363173 ")])], 2)], 1)], 1)
+                }, [e._v("去升级")])]), a("el-form-item", {attrs: {label: "升级内容："}}, [e._v(e._s(e.upgradeInfo.upgradeContent))])] : e._e(), a("el-form-item", {attrs: {label: ""}}, [e._v(" zyplayer-doc是一款开源的在线文档工具，现有WIKI文档、数据库文档、swagger文档、dubbo文档、ElasticSearch文档等，不止文档。期待与你一起来迭代完善 ")])], 2)], 1)], 1)
             }), g = [],
             m = (a("4de4"), a("4160"), a("c975"), a("a15b"), a("4ec9"), a("e25e"), a("3ca3"), a("159b"), a("ddb0"), a("9f03")),
             y = a("0a79"), b = {

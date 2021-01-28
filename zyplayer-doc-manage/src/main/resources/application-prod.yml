@@ -1,6 +1,6 @@
 spring:
   application:
-    name: zyplayer-doc-manage
+    name: wiki-doc-manage
   #  mvc:
   #    static-path-pattern: /**
   servlet:
@@ -15,7 +15,7 @@ spring:
 server:
   port: 8084
   servlet:
-    context-path: /zyplayer-doc-manage
+    context-path: /zyyx-wiki-online
 
 # 整个文档项目的配置
 zyplayer:
@@ -24,15 +24,15 @@ zyplayer:
     manage:
       elasticsearch:
         # 是否开启es，true或false，现在主要用在wiki文档的搜索，使用的es是6.8.0及以上版本
-        open: true
+        open: false
         # es地址配置ip:port，多个使用英文逗号分割，例：127.0.0.1:9200,127.0.0.1:9201
-        hostPort: 127.0.0.1:9200
+        hostPort: 192.168.152.151:8084
         scheme: http
       # 版本和升级信息获取地址
       version: 1.0.7
       upgradePropertiesUrl: https://gitee.com/zyplayer/zyplayer-doc/raw/master/upgrade.properties
       # 系统根域名，调试UI时需要使用，同时需要在host文件里配置：127.0.0.1 local.zyplayer.com
-      originDomainRegex: .*\.wiki\.com(:\d+|)$
+      originDomainRegex: .*\.zyplayer\.com(:\d+|)$
       # 管理端的数据库配置
       datasource:
         driverClassName: com.mysql.jdbc.Driver

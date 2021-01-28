@@ -19,78 +19,49 @@
                 staticClass: "clearfix",
                 attrs: {slot: "header"},
                 slot: "header"
-            }, [s("span", [t._v("所有产品")])]), s("div", {staticClass: "product-list"}, [s("div", {
-                staticClass: "item",
-                on: {
-                    click: function (a) {
-                        return t.jumpToDocPage("doc-swagger")
+            }, [s("span", [t._v("所有产品")])]), s("div", {staticClass: "product-list"}
+                , [s("div", {
+                    staticClass: "item",
+                    on: {
+                        click: function (a) {
+                            return t.jumpToDocPage("doc-db")
+                        }
                     }
-                }
-            }, [s("div", {staticClass: "logo-text text1"}, [t._v("swagger")]), s("div", [t._v("swagger文档")])]), s("div", {
-                staticClass: "item",
-                on: {
-                    click: function (a) {
-                        return t.jumpToDocPage("doc-db")
+                }, [s("div", {staticClass: "logo-text text2"}, [t._v("DB")]), s("div", [t._v("数据库文档")])]), s("div", {
+                    staticClass: "item",
+                    on: {
+                        click: function (a) {
+                            return t.jumpToDocPage("doc-wiki")
+                        }
                     }
-                }
-            }, [s("div", {staticClass: "logo-text text2"}, [t._v("DB")]), s("div", [t._v("数据库文档")])]), s("div", {
-                staticClass: "item",
-                on: {
-                    click: function (a) {
-                        return t.jumpToDocPage("doc-wiki")
+                }, [s("div", {staticClass: "logo-text text3"}, [t._v("WIKI")]), s("div", [t._v("WIKI文档")])]), s("div", {
+                    staticClass: "item",
+                    on: {
+                        click: function (a) {
+                            return t.jumpToDocPage("doc-dubbo")
+                        }
                     }
-                }
-            }, [s("div", {staticClass: "logo-text text3"}, [t._v("WIKI")]), s("div", [t._v("WIKI文档")])]), s("div", {
-                staticClass: "item",
-                on: {
-                    click: function (a) {
-                        return t.jumpToDocPage("doc-dubbo")
+                }, [s("div", {staticClass: "logo-img"}, [s("img", {attrs: {src: i("3c4a")}})]), s("div", [t._v("dubbo文档")])]), s("div", {
+                    staticClass: "item",
+                    on: {
+                        click: function (a) {
+                            return t.jumpToDocPage("doc-es")
+                        }
                     }
-                }
-            }, [s("div", {staticClass: "logo-img"}, [s("img", {attrs: {src: i("3c4a")}})]), s("div", [t._v("dubbo文档")])]), s("div", {
-                staticClass: "item",
-                on: {
-                    click: function (a) {
-                        return t.jumpToDocPage("doc-es")
+                }, [s("div", {staticClass: "logo-text text1"}, [t._v("ES")]), s("div", [t._v("es文档")])]), s("el-tooltip", {
+                    attrs: {
+                        effect: "dark",
+                        content: "不成熟，欢迎完善",
+                        placement: "top-start"
                     }
-                }
-            }, [s("div", {staticClass: "logo-text text1"}, [t._v("ES")]), s("div", [t._v("es文档")])]), s("el-tooltip", {
-                attrs: {
-                    effect: "dark",
-                    content: "不成熟，欢迎完善",
-                    placement: "top-start"
-                }
-            }, [s("div", {staticClass: "item disabled"}, [s("div", {staticClass: "logo-text text4"}, [t._v("GRPC")]), s("div", [t._v("GRPC文档")])])])], 1)])], 1), s("div", {staticStyle: {padding: "20px"}}, [s("el-card", {staticClass: "box-card"}, [s("div", {
+                }, [s("div", {staticClass: "item disabled"}, [s("div", {staticClass: "logo-text text4"}, [t._v("GRPC")]), s("div", [t._v("GRPC文档")])])])], 1)])], 1), s("div", {staticStyle: {padding: "20px"}}, [s("el-card", {staticClass: "box-card"}, [s("div", {
                 staticClass: "clearfix",
                 attrs: {slot: "header"},
                 slot: "header"
-            }, [s("span", [t._v("二方库-集成代理版")]), s("a", {
-                attrs: {
-                    target: "_blank",
-                    href: "http://doc.zyplayer.com/zyplayer-doc-manage/doc-wiki#/page/share/view?pageId=76&space=23f3f59a60824d21af9f7c3bbc9bc3cb"
-                }
-            }, [s("i", {
+            }, [s("span", [t._v("二方库-集成代理版")]), s("a", {}, [s("i", {
                 staticClass: "el-icon-info",
                 staticStyle: {color: "#999"}
-            })])]), s("div", {staticClass: "product-list"}, [s("el-tooltip", {
-                attrs: {
-                    effect: "dark",
-                    content: "swagger的原生官方文档",
-                    placement: "top-start"
-                }
-            }, [s("div", {
-                staticClass: "item", on: {
-                    click: function (a) {
-                        return t.jumpToDocPage("swagger-ui.html")
-                    }
-                }
-            }, [s("div", {staticClass: "logo-text text1"}, [t._v("swagger")]), s("div", [t._v("原生文档")])])]), s("el-tooltip", {
-                attrs: {
-                    effect: "dark",
-                    content: "swagger-bootstrap-ui文档",
-                    placement: "top-start"
-                }
-            }, [s("div", {
+            })])]), s("div", {staticClass: "product-list"}, [s("el-tooltip", {}, [s("div", {
                 staticClass: "item", on: {
                     click: function (a) {
                         return t.jumpToDocPage("doc.html")

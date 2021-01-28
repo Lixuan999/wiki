@@ -96,9 +96,9 @@ public class WikiSpaceController {
             wikiSpace.setCreateTime(new Date());
             wikiSpace.setCreateUserId(currentUser.getUserId());
             wikiSpace.setCreateUserName(currentUser.getUsername());
-            if (wikiSpace.getUserGroup().isEmpty()) {
+/*            if (wikiSpace.getUserGroup().isEmpty()) {
                 wikiSpace.setUserGroup(currentUser.getUserId().toString());
-            }
+            }*/
             //新增空间
             wikiSpaceService.save(wikiSpace);
         }
