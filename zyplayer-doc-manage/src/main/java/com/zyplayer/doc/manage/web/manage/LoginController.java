@@ -40,7 +40,7 @@ public class LoginController {
 
     private static String Url = "http://ggservice.sandbox.gofund.com.cn/v1/ft_account_login/login_by_password";*/
 
-   private static String application = "149";
+    private static String application = "149";
 
     private static String appKey = "FnAgaShASxhtvai";
 
@@ -91,7 +91,15 @@ public class LoginController {
                     UserInfo userInfo = new UserInfo();
 
                     userInfo.setUserNo(username);
-                    userInfo.setUserName((String) data.get("nickname"));
+                    if (data.get("real_name") != null) {
+                        userInfo.setUserName((String) data.get("real_name"));
+                    } else {
+                        if (data.get("nickname") != null) {
+                            userInfo.setUserName((String) data.get("real_name"));
+                        } else {
+                            userInfo.setUserName((String) data.get("account_name"));
+                        }
+                    }
                     userInfo.setPassword(DigestUtils.md5DigestAsHex(password.getBytes()));
                     userInfo.setPhone((String) data.get("mobile"));
                     userInfo.setAvatar((String) data.get("avatar"));

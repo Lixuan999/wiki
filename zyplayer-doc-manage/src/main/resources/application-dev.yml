@@ -1,0 +1,105 @@
+spring:
+  application:
+    name: zyplayer-doc-manage
+  #  mvc:
+  #    static-path-pattern: /**
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+  datasource:
+    continue-on-error: true
+
+# 端口和根路劲，main方法启动时需要，放tomcat后以tomcat的配置为准
+server:
+  port: 8083
+  servlet:
+    context-path: /zyplayer-doc-manage
+
+# 整个文档项目的配置
+zyplayer:
+  doc:
+    # ------zyplayer_doc_manage相关配置------
+    manage:
+      elasticsearch:
+        # 是否开启es，true或false，现在主要用在wiki文档的搜索，使用的es是6.8.0及以上版本
+        open: true
+        # es地址配置ip:port，多个使用英文逗号分割，例：127.0.0.1:9200,127.0.0.1:9201
+        hostPort: 127.0.0.1:9200
+        scheme: http
+      # 版本和升级信息获取地址
+      version: 1.0.7
+      upgradePropertiesUrl: https://gitee.com/zyplayer/zyplayer-doc/raw/master/upgrade.properties
+      # 系统根域名，调试UI时需要使用，同时需要在host文件里配置：127.0.0.1 local.zyplayer.com
+      originDomainRegex: .*\.zyplayer\.com(:\d+|)$
+      # 管理端的数据库配置
+      datasource:
+        driverClassName: com.mysql.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/wiki_doc_manage?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&autoReconnect=true&useSSL=false
+        username: root
+        password: qqcf258..
+    # ------WIKI文档相关------
+    wiki:
+      # WIKI文档的文件上传后的存储目录，！！截图或文件还是很重要的，建议您还要定期备份此目录的文件呢！！
+      upload-path: d:/zyplayerDoc/wikiFiles
+      # 是否检查目录有被系统定期清理的风险，强烈建议开启
+      upload-path-check: true
+      # git本地仓库地址，用于管理WIKI的历史版本
+      git-local-path: d:/zyplayerDoc/wikiGitFiles
+      # git远程仓库地址，可选配置项，如果存在则会每次修改后push到此仓库，必须先创建远程仓库，项目初始化时会去拉取
+      # 如果没有配置此项，则只会在维护一个本地的git仓库，使用简单
+      # 例：https://gitee.com/zyplayer/zyplayer-doc-wiki-files.git
+      git-remote-url:
+      # git远程仓库登录账号
+      git-remote-username:
+      # git远程仓库登录密码
+      git-remote-password:
+    # ------swagger相关配置------
+    swagger:
+      proxy-request:
+        # 允许代理请求的域名，正则表达式，多个使用 ; 分割，必须设置，防止通过代理接口访问到内部资源，实在觉得没必要可设置为：.+
+        white-domain: .+
+    # ------dubbo相关配置------
+    dubbo:
+      # 存放dubbo文档jar上传后存放的目录
+      doc-lib-path: D:/zyplayerDoc/dubbo
+      # 优先使用zookeeper，未配置时找nacos的配置
+      zookeeper:
+      #        url: 127.0.0.1:2181
+      # 服务参数那些信息的服务地址，dubbo7.0新特性
+      #        metadata-url: 127.0.0.1:2181
+      nacos:
+        url: http://127.0.0.1:8848/nacos
+        # 服务名称，多个使用 ; 分割，nacos没办法获取所有的服务列表，所以需要指定，好像通过后端接口可以获取，不知道后续版本会不会登录后才可以访问
+#        service: "com.zyplayer.dubbo.service.UserService;\
+#                  com.zyplayer.dubbo.service.AnnotateService;"
+
+# 下面的配置可以不用管了
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*Mapper.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.zyplayer.doc.manage.repository.manage.entity
+  typeEnumsPackage:
+  global-config:
+    # 数据库相关配置
+    db-config:
+      #主键类型  AUTO:"数据库ID自增", INPUT:"用户输入ID",ID_WORKER:"全局唯一ID (数字类型唯一ID)", UUID:"全局唯一ID UUID";
+      id-type: AUTO
+      #字段策略 IGNORED:"忽略判断",NOT_NULL:"非 NULL 判断"),NOT_EMPTY:"非空判断"
+      field-strategy: not_empty
+      #驼峰下划线转换
+      column-underline: true
+      #数据库大写下划线转换
+      #capital-mode: true
+      #逻辑删除配置
+      logic-delete-value: 0
+      logic-not-delete-value: 1
+      db-type: mysql
+    #刷新mapper 调试神器
+    refresh: true
+  # 原生配置
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+

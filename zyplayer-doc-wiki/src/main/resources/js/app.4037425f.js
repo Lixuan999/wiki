@@ -461,7 +461,7 @@
                     }
                 })], 1)], 1)], 1), a("el-dialog", {
                     attrs: {
-                        title: "创建空间",
+                        title: "新建空间",
                         visible: e.newSpaceDialogVisible,
                         width: "600px",
                         "close-on-click-modal": !1
@@ -607,11 +607,6 @@
                         label: "说明"
                     }
                 }), a("el-table-column", {
-                    attrs: {
-                        prop: "userGroup",
-                        label: "内部成员"
-                    }
-                }), a("el-table-column", {
                     attrs: {label: "开放地址"}, scopedSlots: e._u([{
                         key: "default", fn: function (t) {
                             return [1 == t.row.openDoc ? a("el-button", {
@@ -683,6 +678,7 @@
             y = a("0a79"), b = {
                 data: function () {
                     return {
+                        //展示规则
                         leftCollapse: !0,
                         aboutDialogVisible: !1,
                         rightContentLoading: !1,
